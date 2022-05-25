@@ -1,6 +1,5 @@
 #WebScrapper
 import re
-from xml.etree.ElementTree import tostring
 from bs4 import BeautifulSoup
 from zipfile import ZipFile
 
