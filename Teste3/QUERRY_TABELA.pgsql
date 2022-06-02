@@ -1,11 +1,14 @@
 CREATE DATABASE "IntuitiveCare"
     WITH
     OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'Portuguese_Brazil.1252'
-    LC_CTYPE = 'Portuguese_Brazil.1252'
+    ENCODING 'UTF8'
+    template template0
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
+
+
+ALTER DATABASE "IntuitiveCare"
+        SET client_encoding = WIN1252;
 -- Table: public.Relacao_Operadoras_Ativas_ANS
 
 -- DROP TABLE IF EXISTS public."Relacao_Operadoras_Ativas_ANS";
