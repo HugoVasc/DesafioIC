@@ -1,60 +1,64 @@
+-- Cria o Banco de Dados
 CREATE DATABASE "IntuitiveCare"
     WITH
     OWNER = postgres
-    ENCODING 'UTF8'
-    template template0
+    ENCODING = 'WIN1252'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
-
 ALTER DATABASE "IntuitiveCare"
         SET client_encoding = WIN1252;
+
 -- Table: public.Relacao_Operadoras_Ativas_ANS
 
 -- DROP TABLE IF EXISTS public."Relacao_Operadoras_Ativas_ANS";
+-- Cria a Tabela relacao_operadoras_ativas_ans
 
-CREATE TABLE IF NOT EXISTS public."Relacao_Operadoras_Ativas_ANS"
+CREATE TABLE IF NOT EXISTS public.relacao_operadoras_ativas_ans
 (
-    "Registro ANS" integer NOT NULL,
-    "CNPJ" character varying(15) COLLATE pg_catalog."default" NOT NULL,
-    "Razão Social" text COLLATE pg_catalog."default" NOT NULL,
-    "Nome Fantasia" text COLLATE pg_catalog."default",
-    "Modalidade" character varying(35) COLLATE pg_catalog."default" NOT NULL,
-    "Logradouro" text COLLATE pg_catalog."default" NOT NULL,
-    "Número" character varying(25) COLLATE pg_catalog."default" NOT NULL,
-    "Complemento" text COLLATE pg_catalog."default",
-    "Bairro" text COLLATE pg_catalog."default" NOT NULL,
-    "Cidade" text COLLATE pg_catalog."default" NOT NULL,
-    "UF" character(2) COLLATE pg_catalog."default" NOT NULL,
-    "CEP" numeric(8,0) NOT NULL,
-    "DDD" numeric(2,0),
-    "Telefone" character varying(16) COLLATE pg_catalog."default",
-    "Fax" numeric(11,0),
-    "Endereço eletrônico" text COLLATE pg_catalog."default",
-    "Representante" text COLLATE pg_catalog."default" NOT NULL,
-    "Cargo Representante" text COLLATE pg_catalog."default" NOT NULL,
-    "Data Registro ANS" date NOT NULL,
-    CONSTRAINT "Relacao_Operadoras_Ativas_ANS_pkey" PRIMARY KEY ("Registro ANS")
+    "reg_ans" integer NOT NULL,
+    "cnpj" character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    "razao_social" text COLLATE pg_catalog."default" NOT NULL,
+    "nome_fantasia" text COLLATE pg_catalog."default",
+    "modalidade" character varying(35) COLLATE pg_catalog."default" NOT NULL,
+    "logradouro" text COLLATE pg_catalog."default" NOT NULL,
+    "numero" character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    "complemento" text COLLATE pg_catalog."default",
+    "bairro" text COLLATE pg_catalog."default" NOT NULL,
+    "cidade" text COLLATE pg_catalog."default" NOT NULL,
+    "uf" character(2) COLLATE pg_catalog."default" NOT NULL,
+    "cep" numeric(8,0) NOT NULL,
+    "ddd" numeric(2,0),
+    "telefone" character varying(16) COLLATE pg_catalog."default",
+    "fax" numeric(11,0),
+    "email" text COLLATE pg_catalog."default",
+    "representante" text COLLATE pg_catalog."default" NOT NULL,
+    "cargo_representante" text COLLATE pg_catalog."default" NOT NULL,
+    "data_reg_ans" date NOT NULL,
+    CONSTRAINT "relacao_operadoras_ativas_ans_pkey" PRIMARY KEY ("reg_ans")
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public."Relacao_Operadoras_Ativas_ANS"
+ALTER TABLE IF EXISTS public.relacao_operadoras_ativas_ans
     OWNER to postgres;
 
 
 -- Table: public.demonstracoes_contabeis
 
 -- DROP TABLE IF EXISTS public.demonstracoes_contabeis;
+-- Cria a Tabela demonstracoes_contabeis
 
 CREATE TABLE IF NOT EXISTS public.demonstracoes_contabeis
 (
-    "Data" date NOT NULL,
-    "REG_ANS" integer NOT NULL,
-    "CD_CONTA_CONTABEIS" bigint NOT NULL,
-    "DESCRICAO" text COLLATE pg_catalog."default" NOT NULL,
-    "VL_SALDO_INICIAL" varchar(20),
-    "VL_SALDO_FINAL" varchar(20) NOT NULL
+    "data" date,
+    "reg_ans" integer NOT NULL,
+    "cd_conta_contabeis" bigint NOT NULL,
+    "descricao" text COLLATE pg_catalog."default" NOT NULL,
+    "vl_saldo_inicial" varchar(20),
+    "vl_saldo_final" varchar(20) NOT NULL
 )
 
 TABLESPACE pg_default;
