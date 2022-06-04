@@ -14,3 +14,12 @@ Desafio Processo Seletivo Intuitive Care
 
     - tabula
       * pip install tabula-py
+
+### Teste4
+
+    - flask
+      * pip install flask
+    - flask_sqlalchemy
+      * pip install flask_sqlalchemy
+    - sqlalchemy
+      * pip install sqlalchemy
